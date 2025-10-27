@@ -1,5 +1,4 @@
 import axios, { AxiosInstance } from "axios";
-import useAuthenticated from "@/hooks/useAuthenticate";
 import { getToken } from "@/utils/functions";
 export const serverUrl = process.env.NEXT_PUBLIC_SERVER_URL;
 
@@ -9,7 +8,6 @@ const HTTP_CLIENT: AxiosInstance = axios.create({
 
 const token = getToken();
 
-console.log({ token });
 if (typeof window !== "undefined") {
   HTTP_CLIENT.interceptors.request.use(
     async (config: any) => {
